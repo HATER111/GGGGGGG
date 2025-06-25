@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FALINDA - Новая коллекция</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-width: 320px;
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        
+        .brand-header {
+            text-align: center;
+            padding: 20px 0;
+            font-weight: 700;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+        
+        .nav-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-left, .nav-right {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            font-size: 16px;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            min-height: calc(100vh - 180px);
+        }
+        
+        .text-content {
+            width: 40%;
+            padding: 40px;
+            padding-left: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 0;
+        }
+        
+        .image-content {
+            width: 60%;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image {
+            width: 85%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .collection-block {
+            margin-bottom: 40px;
+        }
+        
+        .new-title {
+            font-size: 64px;
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 0;
+            text-align: left;
+        }
+        
+        .collection-title {
+            font-size: 250px;
+            font-weight: 300;
+            line-height: 0.8;
+            letter-spacing: -10px;
+            text-align: left;
+            margin: 0;
+        }
+        
+        .brand-name {
+            font-size: 40px;
+            font-weight: 500;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .collection-btn, .order-btn {
+            margin-top: 30px;
+            font-weight: bold;
+            padding: 10px 20px;
+            background: transparent;
+            color: #000;
+            border: 1px solid #888;
+            border-radius: 0;
+            font-size: 16px;
+            width: fit-content;
+            cursor: pointer;
+        }
+        
+        .season-text {
+            text-align: center;
+            padding: 20px 0;
+            color: #FFD700;
+            font-weight: 500;
+            font-size: 24px;
+        }
+        
+        .footer-btn {
+            text-align: center;
+            margin-top: 20px;
+            padding-bottom: 40px;
+        }
+        
+        .footer-btn button {
+            font-weight: bold;
+            padding: 10px 20px;
+            background: transparent;
+            color: #000;
+            border: 1px solid #888;
+            border-radius: 0;
+            font-size: 16px;
+        }
+        
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 40px 20px;
+            background-color: #f8f8f8;
+        }
+        
+        .photo-item {
+            width: calc(20% - 15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-instructions {
+            width: 100%;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #eee;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .about-section {
+            background-color: #fff;
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .about-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cooperation-section {
+            margin-top: 40px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .contact-form {
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .form-row input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 200px;
+            font-size: 16px;
+        }
+        
+        .submit-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 768px) {
+            .brand-header {
+                font-size: 20px;
+                padding: 15px 0;
+            }
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-left, .nav-right {
+                gap: 20px;
+            }
+            .nav-item {
+                font-size: 14px;
+            }
+            .content-wrapper {
+                flex-direction: column;
+                min-height: calc(100vh - 220px);
+            }
+            .text-content, .image-content {
+                width: 100%;
+                padding: 30px;
+            }
+            .new-title {
+                font-size: 40px;
+            }
+            .collection-title {
+                font-size: 120px;
+                letter-spacing: -5px;
+            }
+            .product-image {
+                width: 100%;
+                height: auto;
+                max-height: 400px;
+            }
+            .season-text {
+                font-size: 18px;
+                padding: 15px 0;
+            }
+            .photo-item {
+                width: calc(50% - 10px);
+            }
+            .about-section {
+                padding: 30px 20px;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .form-row input {
+                width: 100%;
+            }
+            .modal-content {
+                width: 90%;
+                margin: 30% auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .photo-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="brand-header">FALINDA</div>
+
+   
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="nav-item">ГЛАВНАЯ</div>
+                <div class="nav-item">ВЕСНА 2025</div>
+                <div class="nav-item">ОСЕНЬ 2025</div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-item">О НАС</div>
+                <div class="nav-item">КОНТАКТЫ</div>
+                <div class="nav-item order-btn">СДЕЛАТЬ ЗАКАЗ</div>
+            </div>
+        </div>
+    </header>
+
+   
+    <div class="content-wrapper">
+        <div class="text-content">
+            <div class="collection-block">
+                <div class="new-title">НОВАЯ</div>
+                <div class="collection-title">
+                    КОЛ<br>
+                    ЛЕК<br>
+                    ЦИЯ
+                </div>
+            </div>
+            
+            <button class="collection-btn order-btn">СДЕЛАТЬ ЗАКАЗ</button>
+        </div>
+        
+        <div class="image-content">
+            <img src="images/ваше-фото.jpg" class="product-image" alt="Новая коллекция">
+        </div>
+    </div>
+
+    <div class="season-text">ВЕСНА 2025</div>
+    
+    <div class="photo-gallery">
+        <div class="photo-item">
+            <img src="images/gallery1.jpg" alt="Коллекция 1">
+        </div>
+        <div class="photo-item">
+            <img src="images/gallery2.jpg" alt="Коллекция 2">
+        </div>
+        <div class="photo-item">
+            <img src="images/gallery3.jpg" alt="Коллекция 3">
+        </div>
+        <div class="photo-item">
+            <img src="images/gallery4.jpg" alt="Коллекция 4">
+        </div>
+        <div class="photo-item">
+            <img src="images/gallery5.jpg" alt="Коллекция 5">
+        </div>
+    </div>
+
+    <div class="about-container">
+        <div class="about-section">
+            <h1 class="section-title">О НАС</h1>
+            <div class="about-text">
+                <p>Добро пожаловать в магазин одежды Falinda в Чебоксарах! Мы предлагаем стильную и качественную одежду, которая поможет вам подчеркнуть вашу индивидуальность.</p>
+                <p>В нашем ассортименте – разнообразные коллекции от классики до современных трендов, подобранные с заботой о каждом клиенте. Мы гордимся тем, что поддерживаем местные инициативы и стремимся создать уютную атмосферу для шопинга.</p>
+                <p>Следите за нашими новинками и акциями, и найдите свой идеальный стиль в Falinda!</p>
+            </div>
+        </div>
+            
+        <div class="cooperation-section">
+            <h1 class="section-title">ХОТИТЕ СОТРУДНИЧАТЬ С НАМИ?</h1>
+            <p>Оставьте свой номер телефона и E-mail, и мы свяжемся с вами!</p>
+            
+            <div class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Ваше имя">
+                    <input type="tel" placeholder="+7 (999) 999-99-99">
+                    <input type="email" placeholder="Ваш E-mail">
+                </div>
+                <button class="submit-btn">ОТПРАВИТЬ</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>СДЕЛАТЬ ЗАКАЗ</h2>
+            <form id="orderForm">
+                <div class="form-row">
+                    <input type="text" id="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" id="phone" placeholder="+7 (999) 999-99-99" required>
+                </div>
+                <div class="form-row">
+                    <input type="email" id="email" placeholder="Ваш E-mail" required>
+                </div>
+                <button type="submit" class="submit-btn">ОТПРАВИТЬ ЗАКАЗ</button>
+            </form>
+            <div id="thankYouMessage" class="thank-you-message">
+                <h3>СПАСИБО!</h3>
+                <p>МЫ СВЯЖЕМСЯ С ВАМИ В БЛИЖАЙШЕЕ ВРЕМЯ!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+        const modal = document.getElementById("orderModal");
+        const orderButtons = document.querySelectorAll(".order-btn");
+        const closeBtn = document.querySelector(".close");
+        const orderForm = document.getElementById("orderForm");
+        const thankYouMessage = document.getElementById("thankYouMessage");
+        
+     
+        orderButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                modal.style.display = "block";
+                
+                orderForm.style.display = "block";
+                thankYouMessage.style.display = "none";
+                orderForm.reset();
+            });
+        });
+        
+      
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+        
+      
+        window.addEventListener("click", function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+        
+        
+        orderForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            
+    
+            orderForm.style.display = "none";
+            thankYouMessage.style.display = "block";
+        
+            setTimeout(function() {
+                modal.style.display = "none";
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
