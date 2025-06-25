@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    hr {
+        margin: 20px 0;
+    }
+}
